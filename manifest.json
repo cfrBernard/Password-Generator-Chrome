@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Password Generator",
+  "version": "0.1.0",
+  "description": "Generate strong passwords instantly.",
+  "permissions": ["clipboardWrite"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "dev/icon.ico"
+  }
+}
+  
