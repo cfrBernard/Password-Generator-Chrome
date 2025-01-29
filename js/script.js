@@ -3,6 +3,7 @@ const passwordBtn = document.getElementById("password-btn");
 const flexBox = document.querySelector(".flex-box");
 
 let currentPassword = ''; 
+let hasGenerated = false;
 
 // Generate Password Function
 function generatePassword(length = 12) {
@@ -40,15 +41,21 @@ generateBtn.addEventListener("click", () => {
 
     // Generate and display password
     const newPassword = generatePassword();
-    currentPassword = newPassword;  
+    currentPassword = newPassword; 
     passwordBtn.textContent = newPassword;
+
+    // Replace text with SVG after first click
+    if (!hasGenerated) {
+        generateBtn.innerHTML = `<img src="dev/redo.svg" alt="Regenerate" width="35" height="35">`;
+        hasGenerated = true; 
+    }
 });
 
 // Click Event on Password Button (Copy to Clipboard)
 passwordBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(passwordBtn.textContent).then(() => {
-        passwordBtn.textContent = "Copied!";  
-        
+        passwordBtn.textContent = "Copied!"; 
+
         setTimeout(() => {
             passwordBtn.textContent = currentPassword;
         }, 1000);
