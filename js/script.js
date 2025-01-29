@@ -36,7 +36,7 @@ function generatePassword(length = 12) {
 
 // Click Event on Generate Button
 generateBtn.addEventListener("click", () => {
-    // Activate layout transition
+
     flexBox.classList.add("active");
 
     // Generate and display password
@@ -46,7 +46,7 @@ generateBtn.addEventListener("click", () => {
 
     // Replace text with SVG after first click
     if (!hasGenerated) {
-        generateBtn.innerHTML = `<img src="dev/redo.svg" alt="Regenerate" width="35" height="35">`;
+        generateBtn.innerHTML = `<img src="dev/redo.svg" alt="Regenerate" width="30" height="30">`;
         hasGenerated = true; 
     }
 });
@@ -58,6 +58,6 @@ passwordBtn.addEventListener("click", () => {
 
         setTimeout(() => {
             passwordBtn.textContent = currentPassword;
-        }, 1000);
+        }, 500);
     });
 });
