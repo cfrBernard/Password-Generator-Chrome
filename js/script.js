@@ -2,14 +2,34 @@ const generateBtn = document.getElementById("generate");
 const passwordBtn = document.getElementById("password-btn");
 const flexBox = document.querySelector(".flex-box");
 
+let currentPassword = ''; 
+
 // Generate Password Function
-function generatePassword() {
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+function generatePassword(length = 12) {
+    const lowercase = "abcdefghijklmnopqrstuvwxyz";
+    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numbers = "0123456789";
+    const specialChars = "!@#$%^&*()_-+=<>?";
+
+    // Define the set of possible characters
+    const allChars = lowercase + uppercase + numbers + specialChars;
+
     let password = "";
-    for (let i = 0; i < 12; i++) {
-        password += charset[Math.floor(Math.random() * charset.length)];
+
+    // Add at least one uppercase letter, one lowercase letter, one number, and one special character
+    password += uppercase[Math.floor(Math.random() * uppercase.length)];
+    password += lowercase[Math.floor(Math.random() * lowercase.length)];
+    password += numbers[Math.floor(Math.random() * numbers.length)];
+    password += specialChars[Math.floor(Math.random() * specialChars.length)];
+
+    // Fill the rest of the password with random characters
+    for (let i = password.length; i < length; i++) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
     }
-    // dev: oblige un minimum de spés/caps
+
+    // Shuffle characters to avoid predictable structure
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
+
     return password;
 }
 
@@ -20,15 +40,17 @@ generateBtn.addEventListener("click", () => {
 
     // Generate and display password
     const newPassword = generatePassword();
+    currentPassword = newPassword;  
     passwordBtn.textContent = newPassword;
 });
 
 // Click Event on Password Button (Copy to Clipboard)
 passwordBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(passwordBtn.textContent).then(() => {
-        passwordBtn.textContent = "✅ Copied!";
+        passwordBtn.textContent = "Copied!";  
+        
         setTimeout(() => {
-            // dev: garde le mdp en mémoire et réaffiche 
+            passwordBtn.textContent = currentPassword;
         }, 1000);
     });
 });
