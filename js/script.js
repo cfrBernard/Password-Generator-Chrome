@@ -1,5 +1,6 @@
 const generateBtn = document.getElementById("generate");
 const passwordBtn = document.getElementById("password-btn");
+const settingsBtn = document.getElementById("settings-btn");
 const flexBox = document.querySelector(".flex-box");
 
 let currentPassword = ''; 
@@ -46,7 +47,7 @@ generateBtn.addEventListener("click", () => {
 
     // Replace text with SVG after first click
     if (!hasGenerated) {
-        generateBtn.innerHTML = `<img src="dev/redo.svg" alt="Regenerate" width="30" height="30">`;
+        generateBtn.innerHTML = `<img src="assets/icons/redo.svg" alt="Regenerate" width="30" height="30">`;
         hasGenerated = true; 
     }
 });
@@ -54,10 +55,14 @@ generateBtn.addEventListener("click", () => {
 // Click Event on Password Button (Copy to Clipboard)
 passwordBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(passwordBtn.textContent).then(() => {
-        passwordBtn.textContent = "Copied!"; 
+        passwordBtn.textContent = "✅ Copied!"; 
 
         setTimeout(() => {
             passwordBtn.textContent = currentPassword;
         }, 500);
     });
+});
+
+document.getElementById("settings-btn").addEventListener("click", () => {
+    chrome.runtime.sendMessage({ action: "openExtensionSettings" });
 });
