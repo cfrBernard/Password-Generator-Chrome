@@ -3,7 +3,7 @@
   "name": "Password Generator",
   "version": "1.0.0",
   "description": "Generate strong passwords instantly.",
-  "permissions": ["clipboardWrite", "tabs"],
+  "permissions": ["clipboardWrite"],
   "background": {"service_worker": "background.js"},
   "action": {
     "default_popup": "popup.html",
