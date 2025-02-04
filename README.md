@@ -11,7 +11,7 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 
 ## ⬇️ Quick Download
 
-For the latest version, go to the [Chrome Web Store](https://chrome.google.com/webstore).
+For the latest version, go to the [Chrome Web Store](https://chromewebstore.google.com/detail/password-generator/ehgbipfnhjjobfkklifaiabkbhjghofe?authuser=0&hl=fr).
 
 ---
 
