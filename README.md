@@ -31,7 +31,7 @@ To run this extension locally during development:
 4. Click on Load unpacked and select the extension directory.
 
 ## 📁 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file.
 
 ## 🤝 Contributing
 Feel free to fork this repo, submit issues, and open pull requests for any improvements or new features.
