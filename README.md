@@ -2,9 +2,14 @@
 
 A lightweight and user-friendly Chrome extension that generates strong and secure passwords with just one click. Perfect for securing your online accounts.
 
+<br>
+<br>
+
 <p align="center">
   <img src="docs/img/ObXgQgOxCV.gif" alt="Password Generator Demo" />
 </p>
+
+<br>
 
 ## ✨ Features
 
