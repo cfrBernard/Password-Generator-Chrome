@@ -2,6 +2,20 @@
 
 A lightweight and user-friendly Chrome extension that generates strong and secure passwords with just one click. Perfect for securing your online accounts.
 
+[**Download the latest version here**](https://chromewebstore.google.com/detail/password-generator/ehgbipfnhjjobfkklifaiabkbhjghofe?authuser=0&hl=fr)
+
+![Version](https://img.shields.io/badge/version-v1.0.1-blue)
+![License](https://img.shields.io/github/license/cfrBernard/MaskMapWizard)
+
+## Features
+
+- **One-click password generation**: Instantly create strong passwords without any hassle.
+- **Password copy to clipboard**: One click to copy the generated password to your clipboard.
+- **Sleek design**: Smooth animations and transitions for a polished user experience.
+- **No complex setup**: Just install and start using!
+
+---
+
 <br>
 <br>
 
@@ -10,17 +24,6 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 </p>
 
 <br>
-
-## ✨ Features
-
-- **One-click password generation**: Instantly create strong passwords without any hassle.
-- **Password copy to clipboard**: One click to copy the generated password to your clipboard.
-- **Sleek design**: Smooth animations and transitions for a polished user experience.
-- **No complex setup**: Just install and start using!
-
-## ⬇️ Quick Download
-
-For the latest version, go to the [Chrome Web Store](https://chromewebstore.google.com/detail/password-generator/ehgbipfnhjjobfkklifaiabkbhjghofe?authuser=0&hl=fr).
 
 ---
 
