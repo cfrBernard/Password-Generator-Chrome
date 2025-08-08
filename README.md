@@ -4,8 +4,8 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 
 [**Download the latest version here**](https://chromewebstore.google.com/detail/password-generator/ehgbipfnhjjobfkklifaiabkbhjghofe?authuser=0&hl=fr)
 
-![Version](https://img.shields.io/badge/version-v1.0.1-blue)
-![License](https://img.shields.io/github/license/cfrBernard/MaskMapWizard)
+[![Version](https://img.shields.io/badge/version-v1.0.1-blue)](https://chromewebstore.google.com/detail/password-generator/ehgbipfnhjjobfkklifaiabkbhjghofe?authuser=0&hl=fr)
+[![License](https://img.shields.io/github/license/cfrBernard/MaskMapWizard)](./LICENSE.md)
 
 ## Features
 
