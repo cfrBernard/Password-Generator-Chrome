@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Generator Options</title>
+    <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Settings</h2>
+
+        <label for="password-length">Password length: <span id="length-display">12</span></label>
+        <input type="range" id="password-length" min="4" max="32" value="12">
+
+        <div class="divider"></div>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="include-lowercase" checked> Include lowercase</label>
+            <label><input type="checkbox" id="include-uppercase" checked> Include uppercase</label>
+            <label><input type="checkbox" id="include-numbers" checked> Include numbers</label>
+            <label><input type="checkbox" id="include-special" checked> Include special characters</label>
+        </div>
+
+        <div class="divider"></div>
+
+        <button id="open-extension-settings">Open Extension Settings</button>
+    </div>
+
+    <div id="popup-feedback" class="popup-feedback">Settings saved!</div>
+
+    <script src="js/options.js"></script>
+</body>
+</html>

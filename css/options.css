@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #d9d9d9;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+#length-display {
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0 20px 0;
+    accent-color: #4a90e2;
+}
+
+.checkbox-group {
+    text-align: left;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: #4a90e2;
+    width: 18px;
+    height: 18px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #333333;
+    margin: 20px 0;
+}
+
+button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+.popup-feedback {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4a90e2;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.popup-feedback.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+

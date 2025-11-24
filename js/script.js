@@ -6,63 +6,109 @@ const flexBox = document.querySelector(".flex-box");
 let currentPassword = ''; 
 let hasGenerated = false;
 
-// Generate Password Function
-function generatePassword(length = 12) {
-    const lowercase = "abcdefghijklmnopqrstuvwxyz";
-    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numbers = "0123456789";
-    const specialChars = "!@#$%^&*()_-+=<>?";
+let options = {
+    passwordLength: 12,
+    includeLowercase: true,
+    includeUppercase: true,
+    includeNumbers: true,
+    includeSpecial: true
+};
 
-    // Define the set of possible characters
-    const allChars = lowercase + uppercase + numbers + specialChars;
+// Generate password based on selected options
+function generatePassword(opts) {
+    let chars = "";
+    if (opts.includeLowercase) chars += "abcdefghijklmnopqrstuvwxyz";
+    if (opts.includeUppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (opts.includeNumbers) chars += "0123456789";
+    if (opts.includeSpecial) chars += "!@#$%^&*()_-+=<>?";
+
+    if (!chars) return "";
 
     let password = "";
 
-    // Add at least one uppercase letter, one lowercase letter, one number, and one special character
-    password += uppercase[Math.floor(Math.random() * uppercase.length)];
-    password += lowercase[Math.floor(Math.random() * lowercase.length)];
-    password += numbers[Math.floor(Math.random() * numbers.length)];
-    password += specialChars[Math.floor(Math.random() * specialChars.length)];
+    // Ensure at least one character from each selected category
+    const categories = [];
+    if (opts.includeLowercase) categories.push("abcdefghijklmnopqrstuvwxyz");
+    if (opts.includeUppercase) categories.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    if (opts.includeNumbers) categories.push("0123456789");
+    if (opts.includeSpecial) categories.push("!@#$%^&*()_-+=<>?");
 
-    // Fill the rest of the password with random characters
-    for (let i = password.length; i < length; i++) {
-        password += allChars[Math.floor(Math.random() * allChars.length)];
+    categories.forEach(cat => {
+        password += cat[Math.floor(Math.random() * cat.length)];
+    });
+
+    // Fill the rest of the password
+    for (let i = password.length; i < opts.passwordLength; i++) {
+        password += chars[Math.floor(Math.random() * chars.length)];
     }
 
-    // Shuffle characters to avoid predictable structure
-    password = password.split('').sort(() => Math.random() - 0.5).join('');
-
-    return password;
+    // Shuffle characters
+    return password.split('').sort(() => Math.random() - 0.5).join('');
 }
 
-// Click Event on Generate Button
+// Update displayed password
+function updatePassword() {
+    currentPassword = generatePassword(options);
+    let displayPassword = currentPassword;
+    if (displayPassword.length > 12) {
+        displayPassword = displayPassword.slice(0, 12) + '…';
+    }
+    passwordBtn.textContent = displayPassword;
+    passwordBtn.title = `Click to copy: ${currentPassword}`;
+}
+
+// Copy password to clipboard
+passwordBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(currentPassword).then(() => {
+        const oldText = passwordBtn.textContent;
+        passwordBtn.textContent = "✅ Copied!";
+        setTimeout(() => passwordBtn.textContent = oldText, 500);
+    });
+});
+
+// Load options from storage
+function loadOptions(callback) {
+    chrome.storage.sync.get([
+        "passwordLength",
+        "includeLowercase",
+        "includeUppercase",
+        "includeNumbers",
+        "includeSpecial"
+    ], (data) => {
+        options.passwordLength = data.passwordLength ?? 12;
+        options.includeLowercase = data.includeLowercase ?? true;
+        options.includeUppercase = data.includeUppercase ?? true;
+        options.includeNumbers = data.includeNumbers ?? true;
+        options.includeSpecial = data.includeSpecial ?? true;
+
+        if (callback) callback();
+    });
+}
+
+// Update options when storage changes
+chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === "sync") {
+        for (let key in changes) {
+            if (key in options) options[key] = changes[key].newValue;
+        }
+        updatePassword();
+    }
+});
+
+// Events
 generateBtn.addEventListener("click", () => {
-
     flexBox.classList.add("active");
+    updatePassword();
 
-    // Generate and display password
-    const newPassword = generatePassword();
-    currentPassword = newPassword; 
-    passwordBtn.textContent = newPassword;
-
-    // Replace text with SVG after first click
     if (!hasGenerated) {
         generateBtn.innerHTML = `<img src="assets/icons/redo.svg" alt="Regenerate" width="30" height="30">`;
         hasGenerated = true; 
     }
 });
 
-// Click Event on Password Button (Copy to Clipboard)
-passwordBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(passwordBtn.textContent).then(() => {
-        passwordBtn.textContent = "✅ Copied!"; 
-
-        setTimeout(() => {
-            passwordBtn.textContent = currentPassword;
-        }, 500);
-    });
+settingsBtn.addEventListener("click", () => {
+    chrome.runtime.openOptionsPage();
 });
 
-document.getElementById("settings-btn").addEventListener("click", () => {
-    chrome.runtime.sendMessage({ action: "openExtensionSettings" });
-});
+// Initialize
+loadOptions(updatePassword);

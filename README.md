@@ -4,8 +4,8 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 
 [**Download the latest version here**](https://chromewebstore.google.com/detail/password-generator/ehgbipfnhjjobfkklifaiabkbhjghofe?authuser=0&hl=fr)
 
-![Version](https://img.shields.io/badge/version-v1.0.1-blue)
-![License](https://img.shields.io/github/license/cfrBernard/MaskMapWizard)
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Features
 
@@ -20,7 +20,7 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 <br>
 
 <p align="center">
-  <img src="docs/img/ObXgQgOxCV.gif" alt="Password Generator Demo" />
+  <img src="docs/img/ObXgQgOxCV.gif" alt="Password Generator Demo v1.0.1" />
 </p>
 
 <br>
@@ -32,18 +32,26 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 To run this extension locally during development:
 
 1. Clone this repository:
-   ```bash
+   ```
    git clone https://github.com/cfrBernard/Password-Generator-Chrome.git
+   ```
 
 2. Open Chrome and navigate to 
-   ```bash
+   ```
    chrome://extensions/
+   ```
 
 3. Enable Developer mode.
 4. Click on Load unpacked and select the extension directory.
 
-## 📁 License
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file.
+---
 
-## 🤝 Contributing
-Feel free to fork this repo, submit issues, and open pull requests for any improvements or new features.
+## Notes:
+
+- For more information about the version, please refer to the [changelog](docs/CHANGELOG.md) section.
+- This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+
+---
+
+## Contact
+For issues, suggestions, or contributions, feel free to open an issue on the GitHub repository.
