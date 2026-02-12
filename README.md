@@ -12,6 +12,7 @@ A lightweight and user-friendly Chrome extension that generates strong and secur
 - **One-click password generation**: Instantly create strong passwords without any hassle.
 - **Password copy to clipboard**: One click to copy the generated password to your clipboard.
 - **Sleek design**: Smooth animations and transitions for a polished user experience.
+- **Settings**: Password length and character type options via settings page
 - **No complex setup**: Just install and start using!
 
 ---
